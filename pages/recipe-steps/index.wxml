@@ -1,0 +1,34 @@
+<view class="container">
+  <view class="progress-bar">
+    <view class="progress" style="width: {{(currentStep + 1) / recipe.steps.length * 100}}%"></view>
+  </view>
+
+  <view class="step-container">
+    <view class="step-number">
+      <text class="current">{{currentStep + 1}}</text>
+      <text class="total">/{{recipe.steps.length}}</text>
+    </view>
+
+    <view class="step-content {{animationClass}}">
+      <view class="step-text">{{recipe.steps[currentStep].text}}</view>
+      <view class="step-tip">
+        <text class="tip-text">{{recipe.steps[currentStep].tip}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button class="btn-prev {{currentStep === 0 ? 'disabled' : ''}}" 
+            bindtap="onPrevStep" 
+            disabled="{{currentStep === 0}}">
+      <text class="btn-icon">👈</text>
+      <text>上一步</text>
+    </button>
+    
+    <button class="btn-next" 
+            bindtap="{{currentStep === recipe.steps.length - 1 ? 'onFinish' : 'onNextStep'}}">
+      <text>{{currentStep === recipe.steps.length - 1 ? '完成' : '下一步'}}</text>
+      <text class="btn-icon">{{currentStep === recipe.steps.length - 1 ? '🎉' : '👉'}}</text>
+    </button>
+  </view>
+</view>

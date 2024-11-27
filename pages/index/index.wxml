@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">今天吃什么？</text>
+    <text class="subtitle">让我来帮你决定 🍳</text>
+  </view>
+  
+  <swiper 
+    class="recipe-swiper" 
+    bindchange="onSwiperChange" 
+    current="{{current}}"
+    duration="300"
+    circular="{{true}}"
+    disable-touch="{{isAnimating}}">
+    <swiper-item wx:for="{{recipes}}" wx:key="id">
+      <view class="recipe-card {{item.id === currentRecipe.id && skipAction ? 'throw-away' : ''}}">
+        <view class="recipe-icon">🥘</view>
+        <view class="recipe-info">
+          <text class="recipe-name">{{item.name}}</text>
+          <text class="recipe-desc">{{item.description}}</text>
+          <view class="recipe-meta">
+            <text class="meta-item">难度：{{item.difficulty}}</text>
+            <text class="meta-item">时间：{{item.cookingTime}}</text>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <view class="action-buttons">
+    <view class="btn-wrapper">
+      <view class="trash-can {{isTrashActive ? 'trash-active' : ''}}">
+        🗑️
+      </view>
+      <button class="btn btn-skip" bindtap="onSkip">
+        <text class="btn-icon">🗑️</text>
+        <text>换一个</text>
+      </button>
+    </view>
+    
+    <view class="btn-wrapper">
+      <view class="pot-lid {{isLidActive ? 'lid-active' : ''}}">
+        🍳
+      </view>
+      <button class="btn btn-start" bindtap="onStart">
+        <text class="btn-icon">🍳</text>
+        <text>开始制作</text>
+      </button>
+    </view>
+  </view>
+</view>

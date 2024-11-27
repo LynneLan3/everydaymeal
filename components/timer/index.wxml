@@ -1,0 +1,9 @@
+<view class="timer {{isRunning ? 'running' : ''}}" bindtap="toggleTimer">
+  <view class="timer-icon">
+    <icon type="waiting" size="40" color="{{isRunning ? '#fff' : '#666'}}" />
+  </view>
+  <view class="timer-content">
+    <text class="time">{{formattedTime}}</text>
+    <text class="status">{{isRunning ? '暂停' : '开始'}}</text>
+  </view>
+</view> 

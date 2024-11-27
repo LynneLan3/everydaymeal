@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "烹饪步骤",
+  "usingComponents": {
+    "timer": "/components/timer/index"
+  }
+} 

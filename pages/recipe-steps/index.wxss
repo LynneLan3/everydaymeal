@@ -1,0 +1,160 @@
+/* pages/recipe-steps/index.wxss */
+page {
+  background: #f7f9fc;
+}
+
+.container {
+  padding: 40rpx 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-bar {
+  height: 8rpx;
+  background: #e9ecef;
+  border-radius: 100rpx;
+  margin-bottom: 60rpx;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #27ae60;
+  border-radius: 100rpx;
+  transition: width 0.3s ease;
+}
+
+.step-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx;
+  background: white;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 40rpx;
+}
+
+.step-number {
+  margin-bottom: 40rpx;
+}
+
+.current {
+  font-size: 72rpx;
+  font-weight: 600;
+  color: #27ae60;
+}
+
+.total {
+  font-size: 36rpx;
+  color: #7f8c8d;
+}
+
+.step-content {
+  text-align: center;
+}
+
+.step-content.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.step-content.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.step-text {
+  font-size: 48rpx;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 30rpx;
+}
+
+.step-tip {
+  display: inline-block;
+  padding: 20rpx 40rpx;
+  background: #f8f9fa;
+  border-radius: 100rpx;
+  animation: bounce 1s ease infinite;
+}
+
+.tip-text {
+  font-size: 32rpx;
+  color: #7f8c8d;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn-prev, .btn-next {
+  flex: 1;
+  height: 100rpx;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+}
+
+.btn-prev {
+  background: #f8f9fa;
+  color: #2c3e50;
+  border: 2rpx solid #e9ecef;
+}
+
+.btn-prev.disabled {
+  opacity: 0.5;
+  background: #f8f9fa;
+}
+
+.btn-next {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-next:active {
+  transform: scale(0.98);
+  background: #219a52;
+}
+
+.btn-icon {
+  font-size: 40rpx;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20rpx);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10rpx);
+  }
+}

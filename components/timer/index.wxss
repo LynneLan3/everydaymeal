@@ -1,0 +1,55 @@
+.timer {
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  padding: 24rpx;
+  display: inline-flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.timer.running {
+  background: #07c160;
+}
+
+.timer-icon {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer.running .timer-icon {
+  animation: rotate 1s linear infinite;
+}
+
+.timer-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.time {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.timer.running .time {
+  color: #fff;
+}
+
+.status {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 4rpx;
+}
+
+.timer.running .status {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} 

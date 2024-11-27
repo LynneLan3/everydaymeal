@@ -1,0 +1,143 @@
+/* pages/recipe-ingredients/index.wxss */
+page {
+  background: #f7f9fc;
+}
+
+.container {
+  padding: 40rpx 30rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-header {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.recipe-title {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 16rpx;
+}
+
+.recipe-desc {
+  font-size: 28rpx;
+  color: #7f8c8d;
+}
+
+.recipe-info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40rpx;
+  padding: 30rpx;
+  background: white;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.info-icon {
+  font-size: 48rpx;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 24rpx;
+  color: #7f8c8d;
+  margin-bottom: 4rpx;
+}
+
+.info-value {
+  font-size: 32rpx;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.ingredients-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+}
+
+.ingredients-section {
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.title-icon {
+  font-size: 40rpx;
+}
+
+.ingredients-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.ingredient-tag {
+  background: #f8f9fa;
+  padding: 16rpx 30rpx;
+  border-radius: 100rpx;
+  font-size: 28rpx;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2rpx solid #e9ecef;
+}
+
+.action-button {
+  margin-top: auto;
+  padding: 20rpx 0;
+}
+
+.btn-next {
+  background: #27ae60;
+  color: white;
+  height: 100rpx;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+}
+
+.btn-next::after {
+  border: none;
+}
+
+.btn-icon {
+  font-size: 40rpx;
+}
+
+.btn-next:active {
+  transform: scale(0.98);
+  background: #219a52;
+}

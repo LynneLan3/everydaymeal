@@ -1,0 +1,56 @@
+<view class="container">
+  <view class="recipe-header">
+    <view class="recipe-title">{{recipe.name}}</view>
+    <view class="recipe-desc">{{recipe.description}}</view>
+  </view>
+
+  <view class="recipe-info">
+    <view class="info-item">
+      <view class="info-icon">⏱️</view>
+      <view class="info-content">
+        <text class="info-label">烹饪时长</text>
+        <text class="info-value">{{recipe.cookingTime}}</text>
+      </view>
+    </view>
+    <view class="info-item">
+      <view class="info-icon">🔥</view>
+      <view class="info-content">
+        <text class="info-label">难度等级</text>
+        <text class="info-value">{{recipe.difficulty}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="ingredients-container">
+    <view class="ingredients-section">
+      <view class="section-title">
+        <text class="title-icon">🥘</text>
+        <text>原材料</text>
+      </view>
+      <view class="ingredients-grid">
+        <view class="ingredient-tag" wx:for="{{recipe.ingredients.main}}" wx:key="*this">
+          {{item}}
+        </view>
+      </view>
+    </view>
+
+    <view class="ingredients-section">
+      <view class="section-title">
+        <text class="title-icon">🧂</text>
+        <text>调味料</text>
+      </view>
+      <view class="ingredients-grid">
+        <view class="ingredient-tag" wx:for="{{recipe.ingredients.seasoning}}" wx:key="*this">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-button">
+    <button class="btn-next" bindtap="onStartCooking">
+      <text class="btn-icon">👨‍🍳</text>
+      <text>开始烹饪</text>
+    </button>
+  </view>
+</view>
