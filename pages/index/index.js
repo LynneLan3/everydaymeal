@@ -89,13 +89,31 @@ Page({
     isAnimating: false,
     isTrashActive: false,
     isLidActive: false,
-    skipAction: false  // 新增标记，用于区分是否是点击跳过触发的切换
+    skipAction: false,
+    dailyInfo: null
   },
 
   onLoad() {
     this.setData({
       currentRecipe: mockRecipes[0]
     });
+  },
+
+  onShow() {
+    // 获取今日信息
+    const dailyInfo = wx.getStorageSync('dailyInfo');
+    const lastCheckDate = wx.getStorageSync('lastCheckDate');
+    const today = new Date().toDateString();
+
+    if (lastCheckDate !== today || !dailyInfo) {
+      // 如果今天还没有选择过天气和心情，跳转到选择页面
+      wx.redirectTo({
+        url: '/pages/daily-check/index'
+      });
+      return;
+    }
+
+    this.setData({ dailyInfo });
   },
 
   onSwiperChange(e) {
@@ -133,28 +151,16 @@ Page({
   },
 
   onStart() {
-    if (this.data.isAnimating) return;
-
-    this.setData({
-      isLidActive: true,
-      isAnimating: true
+    wx.navigateTo({
+      url: `/pages/recipe-steps/index?id=${this.data.currentRecipe.id}`
     });
+  },
 
-    // 保存当前菜谱到全局数据
-    getApp().globalData.currentRecipe = this.data.currentRecipe;
-
-    setTimeout(() => {
-      wx.navigateTo({
-        url: '/pages/recipe-ingredients/index'
-      });
-
-      // 重置动画状态
-      setTimeout(() => {
-        this.setData({
-          isLidActive: false,
-          isAnimating: false
-        });
-      }, 500);
-    }, 800);
+  previewImage(e) {
+    const src = e.currentTarget.dataset.src;
+    wx.previewImage({
+      current: src,
+      urls: [src]
+    });
   }
 });

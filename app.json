@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/daily-check/index",
     "pages/recipe-ingredients/index",
     "pages/recipe-steps/index"
   ],

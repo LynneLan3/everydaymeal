@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="section">
+    <text class="section-title">天气</text>
+    <view class="options-grid">
+      <view 
+        wx:for="{{weatherOptions}}" 
+        wx:key="*this"
+        class="option {{weather === item ? 'selected' : ''}}"
+        data-index="{{index}}"
+        bindtap="selectWeather"
+      >
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">心情</text>
+    <view class="options-grid">
+      <view 
+        wx:for="{{moodOptions}}" 
+        wx:key="*this"
+        class="option {{mood === item ? 'selected' : ''}}"
+        data-index="{{index}}"
+        bindtap="selectMood"
+      >
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <button class="submit-btn" bindtap="skipToMenu">看看菜单</button>
+</view>

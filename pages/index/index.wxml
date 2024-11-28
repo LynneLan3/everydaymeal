@@ -3,6 +3,11 @@
   <view class="header">
     <text class="title">今天吃什么？</text>
     <text class="subtitle">让我来帮你决定 🍳</text>
+    <view class="daily-info" wx:if="{{dailyInfo}}">
+      <text>{{dailyInfo.weather}}</text>
+      <text class="divider">|</text>
+      <text>{{dailyInfo.mood}}</text>
+    </view>
   </view>
   
   <swiper 
@@ -14,7 +19,13 @@
     disable-touch="{{isAnimating}}">
     <swiper-item wx:for="{{recipes}}" wx:key="id">
       <view class="recipe-card {{item.id === currentRecipe.id && skipAction ? 'throw-away' : ''}}">
-        <view class="recipe-icon">🥘</view>
+        <image 
+          class="recipe-image" 
+          src="{{item.image || '../../images/default-food.jpg'}}" 
+          mode="aspectFill"
+          bindtap="previewImage"
+          data-src="{{item.image || '../../images/default-food.jpg'}}"
+        />
         <view class="recipe-info">
           <text class="recipe-name">{{item.name}}</text>
           <text class="recipe-desc">{{item.description}}</text>
